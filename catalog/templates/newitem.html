@@ -1,0 +1,28 @@
+{% extends "main.html" %}
+{% block content %}
+    <div class="form-container">
+        <h1 style="text-align: center">Create a new item of category {{category.name}}</h1>
+        <form action="/categories/{{category.id}}/items/new" method="POST">
+            <div class="form-group">
+                <label>Item Name</label>
+                <input class="form-control" type="text" name="item_name" value="{{item_name}}" placeholder="for example: Bicycle">
+                <small class="form-text form-muted error">{{error.name_error}}</small>
+            </div>
+
+            <div class="form-group">
+                <label>Item Image URL</label>
+                <input class="form-control" type="text" name="item_imgurl" value="{{item_imgurl}}" placeholder="for example: https://image.google.com/2.jpg">
+                <small class="form-text form-muted error">{{error.imgurl_error}}</small>
+            </div>
+
+            <div class="form-group">
+                <label>Item Description</label>
+                <textarea class="form-control" name="item_desp" rows="10" placeholder="for example: This is a good bicycle">{{item_desp}}</textarea>
+                <small class="form-text form-muted error">{{error.desp_error}}</small>
+            </div>
+
+            <button type="submit" class="btn btn-block btn-success">Create this Item</button>
+        </form>
+        <a class="single-btn btn btn-block btn-info" href="/categories/{{category.id}}">Return to the Category Page</a>
+    </div>
+{% endblock %}

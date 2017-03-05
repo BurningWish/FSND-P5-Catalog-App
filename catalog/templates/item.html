@@ -1,0 +1,43 @@
+{% extends "main.html" %}
+{% block content %}
+    <div class = 'flash'>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    {% if "Sorry" in message %}
+                        <div class="alert alert-danger" role="alert">
+                            {{message}}
+                        </div>
+                    {% else %}
+                        <div class="alert alert-success" role="alert">
+                            {{message}}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <!-- ok our homebane -->
+    <div class="item-header">
+        <h1>{{item.name}}</h1>
+        <h4><i>Created by {{item.creator}}</i></h4>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-md-offset-1">
+            <div class = "thumbnail" style="height: 250px; background: url({{item.imgurl}}); background-size: cover; background-position: center">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <i><h4><strong>Description:</strong> {{item.description}}</h4></i>
+        </div>
+    </div>
+
+    <div class="buttons-container" style="text-align: center">
+        {% if "username" in login_session and login_session["username"] == item.creator %}
+            <a class="inline-btn btn-warning btn" href="/categories/{{item.category_id}}/items/{{item.id}}/edit">Edit this item</a>
+            <a class="inline-btn btn-danger btn" href="/categories/{{item.category_id}}/items/{{item.id}}/delete">Delete this item</a>
+        {% endif %}
+            <a class = "btn-info btn" href="/categories/{{item.category_id}}">Return to the Category Page</a>
+    </div>
+{% endblock %}

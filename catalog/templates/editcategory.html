@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+{% block content %}
+    <div class="form-container">
+        <h1 style="text-align:center">Edit Category {{category.name}}</h1>
+        <form action="/categories/{{category.id}}/edit" method="POST">
+            <div class="form-group">
+                <label>Category Name</label>
+                <input type="text" class="form-control" name="category_name" value="{{category.name}}" placeholder="for example: Cycling">
+                <small class="form-text form-muted error">{{error.name_error}}</small>
+            </div>
+            <div class="form-group">
+                <label>Category Image URL</label>
+                <input type="text" class="form-control" name="category_imgurl" value="{{category.imgurl}}" placeholder="for example: https://image.google.com/example.jpg">
+                <small class="form-text form-muted error">{{error.imgurl_error}}</small>
+            </div>
+            <button type="submit" class="btn btn-block btn-success">Submit your Edit</button>
+        </form>
+        <a class="single-btn btn btn-block btn-info" href="/categories/{{category.id}}">Return to the Category Page</a>
+    </div>
+{% endblock %}

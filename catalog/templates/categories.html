@@ -1,0 +1,48 @@
+{% extends "main.html" %}
+{% block content %}
+
+    <div class = 'flash'>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    {% if "Sorry" in message %}
+                        <div class="alert alert-danger" role="alert">
+                            {{message}}
+                        </div>
+                    {% else %}
+                        <div class="alert alert-success" role="alert">
+                            {{message}}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <div class="jumbotron">
+        <h1>
+            <i class="fa fa-camera-retro" aria-hidden="true"></i>
+            The Catalog App
+        </h1>
+        <p>A bunch of sports equipment categories along with their images and descriptions</p>
+        <p>
+            <a class = "btn-primary btn-lg" href = "/categories/new">Add New Category</a>
+        </p>
+    </div>
+
+    <div class = "row text-center" style = "display: flex; flex-wrap: wrap;">
+        {% for category in categories %}
+            <div class = "cell col-md-4 col-sm-6 col-xs-12">
+                <div class = "thumbnail" style="height: 250px; background: url({{category.imgurl}}); background-size: cover; background-position: center">
+                </div>
+                <div class = "caption">
+                        <h3>{{category.name}}</h3>
+                        <i>Created by {{category.creator}}</i>
+                </div>
+                <p>
+                    <a class = "btn btn-primary" href = "/categories/{{category.id}}">View Category</a>
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock%}

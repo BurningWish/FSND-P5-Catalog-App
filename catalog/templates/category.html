@@ -1,0 +1,52 @@
+{% extends "main.html" %}
+{% block content %}
+    <div class = 'flash'>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    {% if "Sorry" in message %}
+                        <div class="alert alert-danger" role="alert">
+                            {{message}}
+                        </div>
+                    {% else %}
+                        <div class="alert alert-success" role="alert">
+                            {{message}}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <div class="jumbotron category-jumbotron">
+        <h2 class="category-header" style="text-align: center">
+            Welcome to the category of {{category.name}}
+        </h2>
+
+        <div class="buttons-container" style="text-align: center">
+            {% if "username" in login_session and login_session["username"] == category.creator %}
+                <a class = "inline-btn btn-warning btn" href = "/categories/{{category.id}}/edit">Edit this Category</a>
+                <a class = "inline-btn btn-danger btn" href="/categories/{{category.id}}/delete">Delete this Category</a>
+            {% endif %}
+            <a class = "inline-btn btn-primary btn" href = "/categories/{{category.id}}/items/new">Add New Item of this Category</a>
+            <a class = "btn-info btn" href="/categories">Return to the Home Page</a>
+        </div>
+    </div>
+
+    <div class = "row text-center" style = "display: flex; flex-wrap: wrap;">
+        {% for item in items %}
+            <div class = "cell col-md-4 col-sm-6 col-xs-12">
+                <div class = "thumbnail" style="height: 250px; background: url({{item.imgurl}}); background-size: cover; background-position: center">
+                </div>
+                <div class = "caption">
+                        <h3>{{item.name}}</h3>
+                        <i>Created by {{item.creator}}</i>
+                    </div>
+                    <p>
+                        <a class = "btn btn-primary" href = "/categories/{{category.id}}/items/{{item.id}}">View Item</a>
+                    </p>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

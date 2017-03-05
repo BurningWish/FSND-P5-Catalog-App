@@ -1,0 +1,11 @@
+{% extends "main.html" %}
+{% block content %}
+    <div style="text-align: center" class="form-container">
+        <h3>Warning! This cannot be undone!</h3>
+        <h4>You want to delete the {{item.name}} of category {{category.name}}?</h4>
+        <form action="/categories/{{category.id}}/items/{{item.id}}/delete" method="POST">
+            <button type="submit" class="inline-btn btn btn-danger">Yes, let me delete this item</button>
+            <a class="btn btn-info" href="/categories/{{category.id}}/items/{{item.id}}">Wait...I changed my mind</a>
+        </form>
+    </div>
+{% endblock %}
