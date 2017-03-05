@@ -19,61 +19,61 @@ The web app depends on lots of python packages, and therefore it is highly recom
 
 2. Download the repository and unzip the folder to your desktop.
 
-3. Open you terminal, move to the folder """/vagrant""" and type the command to setup the virtual machine.
-"""
+3. Open you terminal, move to the folder ```/vagrant``` and type the command to setup the virtual machine.
+```
 vagrant up
-"""
+```
 
 4. If everything is fine, you should have a new virtual machine installed, and type the command to log into it.
-"""
+```
 vagrant ssh
-"""
+```
 
 5. After successfully logged into your virtual machine, type the following command to move to the web app folder.
-"""
+```
 cd /vagrant/catalog
-"""
+```
 
 6. Now type the following command to create a database for the web app.
-"""
+```
 python database_setup.py
-"""
+```
 
-7. You should have a file called """catalog.db""" now. Type the following command to insert some data into the database.
-"""
+7. You should have a file called ```catalog.db``` now. Type the following command to insert some data into the database.
+```
 python item_insert.py
-"""
+```
 
 8. Catalog App is good to go, now type the command to finally start it.
-"""
+```
 python index.py
-"""
+```
 
-9. Open your web browser (Google Chrome Recommended), type """localhost:5000""" and have fun!
+9. Open your web browser (Google Chrome Recommended), type ```localhost:5000``` and have fun!
 
 10. If you want to stop the virtual machine, make sure you log out of the virtual machine and type the following command.
-"""
+```
 vagrant halt
-"""
+```
 
 ## JSON Endpoints
 
 This web app support several JSON Endpoints.
 
 1. JSON data enpoint for all the categories.
-"""
+```
 localhost:5000/categories/JSON
-"""
+```
 
-2. JSON data endpoint for a category and all items of that category. Please note """category_id""" is a number, and it is the id for a category.
-"""
+2. JSON data endpoint for a category and all items of that category. Please note ```category_id``` is a number, and it is the id for a category.
+```
 localhost:5000/categories/category_id/JSON
-"""
+```
 
-3. JSON data endpoint for an item, under a certan category. Please note """item_id""" is a number, and it is the id for an item.
-"""
+3. JSON data endpoint for an item, under a certan category. Please note ```item_id``` is a number, and it is the id for an item.
+```
 localhost:5000/categories/category_id/items/item_id/JSON
-"""
+```
 
 ## License
 This project is licensed under the terms of the **MIT** license.
