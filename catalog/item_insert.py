@@ -182,7 +182,7 @@ item = Item(user_id=1,
             category=snowboarding,
             name="Ski Helmet",
             creator="BurningWish",
-            imgurl="http://www.snowboarder.com/files/2013/10/PR-OsbeHelmet.jpg",
+            imgurl="http://images.sportsdirect.com/images/products/40705601_l.jpg",
             description="""A ski helmet is a helmet specifically designed and constructed for winter sports. Use was rare until about 2000, but by about 2010 the great majority of skiers and snowboarders in the US and Europe wear helmets."""
             )
 session.add(item)
@@ -192,7 +192,7 @@ item = Item(user_id=1,
             category=snowboarding,
             name="Snowboards",
             creator="BurningWish",
-            imgurl="https://pantherfile.uwm.edu/collins9/www/finalproject5/Project_5/board.jpg",
+            imgurl="http://www.theactionadvisor.com/wp-content/uploads/2014/02/2014_Burton_Clash_Snowboard.png",
             description="""Snowboards are boards that are usually the width of one's foot longways, with the ability to glide on snow. Snowboards are differentiated from monoskis by the stance of the user. In monoskiing, the user stands with feet inline with direction of travel (facing tip of monoski/downhill) (parallel to long axis of board), whereas in snowboarding, users stand with feet transverse (more or less) to the longitude of the board. Users of such equipment may be referred to as snowboarders. Commercial snowboards generally require extra equipment such as bindings and special boots which help secure both feet of a snowboarder, who generally rides in an upright position."""
             )
 session.add(item)
